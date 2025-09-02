@@ -27,6 +27,7 @@ const BondForm = ({ onAddBond }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.Bond) return;
     onAddBond({ ...formData });
     setFormData({
       Bond: "",
@@ -49,12 +50,15 @@ const BondForm = ({ onAddBond }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-gray-100 rounded-xl shadow-md grid grid-cols-3 gap-4 mb-6">
+    <form
+      onSubmit={handleSubmit}
+      className="p-4 bg-gray-100 rounded-xl shadow grid grid-cols-3 gap-3"
+    >
       <input name="Bond" value={formData.Bond} onChange={handleChange} placeholder="Bond" className="p-2 border rounded" />
 
       <select name="Expected_Interest_Month_Date" value={formData.Expected_Interest_Month_Date} onChange={handleChange} className="p-2 border rounded">
-        {[...Array(31).keys()].map((d) => (
-          <option key={d + 1} value={d + 1}>{d + 1}</option>
+        {Array.from({ length: 31 }, (_, i) => (
+          <option key={i + 1} value={String(i + 1)}>{i + 1}</option>
         ))}
       </select>
 

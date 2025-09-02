@@ -1,0 +1,4 @@
+.maturity-cell { background-color: #fff7cc !important; font-weight: 600; }
+.post-maturity-cell { background-color: #f3f3f3 !important; color: #7a7a7a !important; }
+button { padding: 6px 12px; border-radius: 8px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+button:hover { background: #f6f6f6; }
